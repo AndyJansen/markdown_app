@@ -6,6 +6,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @related_notes = @note.find_related_tags
   end
 
   def new

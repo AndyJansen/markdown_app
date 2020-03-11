@@ -1,5 +1,8 @@
 <h1>Tagged Notes</h1>
 
-<% @notes.each do |note| %>
-  <%= note.tag_list %>
+<% @notes.each do |r| %>
+  <%= markdown(r.title) %>
+  <% r.tag_list.each do |tag| %>
+    <%= link_to tag, tagged_path(tag: tag) %>
+  <% end %></p>
 <% end %>
