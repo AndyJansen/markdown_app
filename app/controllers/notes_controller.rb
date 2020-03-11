@@ -40,9 +40,17 @@ class NotesController < ApplicationController
     redirect_to notes_path
   end
 
+  def tagged
+    if params[:tag].present?
+      @notes = Note.tagged_with(params[:tag])
+    else
+      @notes = Note.all
+    end
+  end
+
   private
   def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :tag_list)
   end
  
 end

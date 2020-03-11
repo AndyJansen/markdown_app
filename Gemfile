@@ -27,6 +27,8 @@ gem 'haml'
 gem 'redcarpet', '~> 3.5'
 #also for markdown
 gem 'coderay', '~> 1.1', '>= 1.1.2'
+#ability to tag notes
+gem 'acts-as-taggable-on', '~> 6.5'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
