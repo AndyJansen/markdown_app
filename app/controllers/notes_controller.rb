@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   def edit
     @note = Note.find(params[:id])
   end
-  
+
   def create
     @note = Note.new(note_params)
 
@@ -23,11 +23,10 @@ class NotesController < ApplicationController
     redirect_to @note
   end
 
-
   def update
     @note = Note.find(params[:id])
 
-    if@note.update(note_params)
+    if @note.update(note_params)
       redirect_to @note
     else 
       render 'edit'
@@ -37,6 +36,8 @@ class NotesController < ApplicationController
   def destroy
     @note = Note.find(params[:id])
     @note.destroy
+
+    redirect_to notes_path
   end
 
   private
