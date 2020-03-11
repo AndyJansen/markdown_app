@@ -10,7 +10,7 @@
 
 <p>
   <strong>Tags:</strong>
-  <%= (@note.tags) %>
+  <%= markdown(@note.tags) %>
 </p>
 
 <%= link_to 'Notes', notes_path %>
