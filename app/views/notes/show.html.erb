@@ -1,11 +1,18 @@
-
 <p>
   <strong>Title:</strong>
-  <%= @note.title %>
+  <%= markdown(@note.title) %>
 </p>
  
 <p>
   <strong>Content:</strong>
-  <%= @note.content %>
+  <%= markdown(@note.content) %>
 </p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= (@note.tags) %>
+</p>
+
+<%= link_to 'Notes', notes_path %>
+
 
