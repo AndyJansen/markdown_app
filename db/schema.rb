@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_174225) do
+ActiveRecord::Schema.define(version: 2020_03_12_140707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.bigint "note_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_comments_on_note_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -49,5 +58,6 @@ ActiveRecord::Schema.define(version: 2020_03_11_174225) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "comments", "notes"
   add_foreign_key "taggings", "tags"
 end
