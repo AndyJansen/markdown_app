@@ -18,9 +18,13 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-
-    @note.save!
-    redirect_to @note
+    respond_to do |format|
+      if params[:preview_button] || !@note.save
+        format.html { render :new }
+      else
+        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+      end
+    end
   end
 
   def update
