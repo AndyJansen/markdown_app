@@ -22,8 +22,8 @@
 
     <% if params[:preview_button] %> <br>
     <%= 'Are these the attributes you want to save?' %>
-        <p>Name: <%= @note.title%> </p>
-        <p>Content: <%= @note.content%> </p>
+        <p>Name: <%= markdown(@note.title)%> </p>
+        <p>Content: <%= markdown(@note.content)%> </p>
 
 
 
